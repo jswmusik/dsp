@@ -9,28 +9,32 @@ const steps = [
     title: "Kick off & Målbild",
     desc: "Vi definierar visionen. Vart ska vi? Syftet är att hitta en kristallklar målbild för startupen.",
     icon: <Flag className="w-6 h-6" />,
-    img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800",
+    // Bild: Whiteboard session, messy, creative
+    img: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=800",
   },
   {
     id: 2,
     title: "Problem & Kund",
     desc: "Vem betalar? Är det 'nice to have' eller 'must have'? Vi kartlägger marknadspositionen.",
     icon: <Search className="w-6 h-6" />,
-    img: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=800",
+    // Bild: User research, talking to people, coffee shop vibe
+    img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800",
   },
   {
     id: 3,
     title: "Validering",
     desc: "Testa idén mot verkligheten. Vi jagar inte perfekta svar, vi fångar upp signaler och tweakar.",
     icon: <CheckCircle className="w-6 h-6" />,
-    img: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=800",
+    // Bild: Data på skärmar, analytics, dark mode dashboard
+    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
   },
   {
     id: 4,
     title: "AI Studio: Grunderna",
     desc: "Nu bygger vi. Vilken AI-lösning stöttar bäst? Vi tar fram en teknisk roadmap.",
     icon: <Cpu className="w-6 h-6" />,
-    img: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
+    // Bild: Complex code, neural network visualization, matrix style
+    img: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800",
     highlight: true
   },
   {
@@ -38,28 +42,32 @@ const steps = [
     title: "Bygga POC/MVP",
     desc: "Från snack till verkstad. Tidiga användartester. Produkten ska ut och kännas på.",
     icon: <Code className="w-6 h-6" />,
-    img: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=800",
+    // Bild: Hackathon, late night coding, laptop screens
+    img: "https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?auto=format&fit=crop&q=80&w=800",
   },
   {
     id: 6,
     title: "Sälj & Entreprenör",
     desc: "Bygg teamet och trovärdigheten. Lär er ta betalt. Vi sätter säljpitch och prissättning.",
     icon: <TrendingUp className="w-6 h-6" />,
-    img: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&q=80&w=800",
+    // Bild: Passionate presentation, pitching, dark room
+    img: "https://images.unsplash.com/photo-1544531696-934845326817?auto=format&fit=crop&q=80&w=800",
   },
   {
     id: 7,
     title: "Pilot & Avtal",
     desc: "Onboarda kunder. LOI:er och skarpa avtal. Nu skalar vi upp marknadsandelen.",
     icon: <Handshake className="w-6 h-6" />,
-    img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80&w=800",
+    // Bild: Focused meeting, signing, intense discussion
+    img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=800",
   },
   {
     id: 8,
     title: "Demo Day",
     desc: "Finalen. Investerare och intressenter. Skarpt läge med pitch och produktvisning.",
     icon: <Award className="w-6 h-6" />,
-    img: "https://images.unsplash.com/photo-1475721027767-pfa5260e08f6?auto=format&fit=crop&q=80&w=800",
+    // Bild: Stage, spotlight, microphone, crowd silhouette
+    img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=800",
   }
 ];
 
@@ -75,7 +83,7 @@ export default function Timeline() {
   return (
     <section className="py-24 bg-[#050505] relative overflow-hidden">
 
-      {/* Background Grid Pattern för att göra det roligare */}
+      {/* Background Grid Pattern */}
       <div className="absolute inset-0 z-0 opacity-20"
            style={{ backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)', backgroundSize: '50px 50px' }}>
       </div>
@@ -101,7 +109,7 @@ export default function Timeline() {
             className="absolute left-[20px] md:left-1/2 top-60 bottom-40 w-0.5 bg-[#00ff9d] transform md:-translate-x-1/2 shadow-[0_0_15px_#00ff9d]"
         ></motion.div>
 
-        {/* Minskat spacing från space-y-32 till space-y-16 */}
+        {/* Timeline Items */}
         <div className="relative z-10 space-y-16 md:space-y-20">
           {steps.map((step, index) => {
             const isEven = index % 2 === 0;
@@ -120,30 +128,36 @@ export default function Timeline() {
                   <motion.div
                     whileHover={{ scale: 1.02 }}
                     className={`
-                        relative overflow-hidden rounded-2xl border bg-black/60 backdrop-blur-md p-1
+                        relative overflow-hidden rounded-2xl border bg-black/80 backdrop-blur-md p-1 group
                         ${step.highlight ? 'border-[#00ff9d]/50 shadow-[0_0_30px_rgba(0,255,157,0.1)]' : 'border-white/10 hover:border-white/20'}
-                        transition-all duration-300
+                        transition-all duration-500
                     `}
                   >
-                    <div className="relative h-40 w-full overflow-hidden rounded-xl mb-4">
-                        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10 opacity-80"></div>
+                    {/* Image Area with "Cyberpunk" Filter Effect */}
+                    <div className="relative h-48 w-full overflow-hidden rounded-xl mb-4 bg-black">
+                        {/* Overlay: Green Tint & Darken */}
+                        <div className="absolute inset-0 bg-[#00ff9d]/10 mix-blend-overlay z-10 pointer-events-none group-hover:bg-transparent transition-all duration-500"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-20 opacity-90"></div>
+
                         <img
                             src={step.img}
                             alt={step.title}
-                            className="h-full w-full object-cover"
+                            className="h-full w-full object-cover grayscale contrast-125 brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700 ease-out"
                         />
-                        <div className="absolute bottom-3 left-3 z-20 flex items-center gap-2">
-                            <span className="text-[#00ff9d] bg-black/50 px-2 py-1 rounded text-xs font-mono border border-[#00ff9d]/30">
-                                STEG 0{step.id}
+
+                        {/* Step Badge */}
+                        <div className="absolute bottom-3 left-3 z-30 flex items-center gap-2">
+                            <span className="text-[#00ff9d] bg-black/80 px-2 py-1 rounded text-xs font-mono border border-[#00ff9d]/30 shadow-lg backdrop-blur-md">
+                                STEP 0{step.id}
                             </span>
                         </div>
                     </div>
 
-                    <div className="p-4 pt-0">
-                        <h3 className={`text-2xl font-bold mb-2 ${step.highlight ? 'text-[#00ff9d]' : 'text-white'}`}>
+                    <div className="p-4 pt-0 relative z-30">
+                        <h3 className={`text-2xl font-bold mb-2 ${step.highlight ? 'text-[#00ff9d]' : 'text-white'} group-hover:text-[#00ff9d] transition-colors`}>
                             {step.title}
                         </h3>
-                        <p className="text-gray-400 leading-relaxed text-sm">
+                        <p className="text-gray-400 leading-relaxed text-sm group-hover:text-gray-300 transition-colors">
                             {step.desc}
                         </p>
                     </div>
@@ -151,7 +165,7 @@ export default function Timeline() {
 
                 </div>
 
-                {/* Center Node (Icon) - Nu med scroll-reaktion! */}
+                {/* Center Node (Icon) */}
                 <div className="absolute left-[20px] md:left-1/2 transform -translate-x-1/2 flex items-center justify-center">
                     <motion.div
                         initial={{ scale: 1, backgroundColor: "#050505", borderColor: "#374151" }}
