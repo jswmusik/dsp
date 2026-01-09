@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import Vision from "@/components/Vision";
 import Timeline from "@/components/Timeline";
 import Partners from "@/components/Partners";
+import Marketing from "@/components/Marketing";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <Vision />
       <Timeline />
       <Partners />
+      <Marketing />
 
       {/* Enkel Footer */}
       <footer className="py-10 border-t border-white/10 text-center text-gray-600 text-sm">
