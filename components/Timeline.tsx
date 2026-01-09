@@ -64,13 +64,10 @@ const steps = [
 ];
 
 export default function Timeline() {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll();
 
-  const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const scaleY = useTransform(scrollYProgress, [0.15, 0.85], [0, 1]);
 
   return (
     <section className="py-24 bg-[#050505] relative overflow-hidden">
