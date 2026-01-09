@@ -9,32 +9,28 @@ const steps = [
     title: "Kick off & Målbild",
     desc: "Vi definierar visionen. Vart ska vi? Syftet är att hitta en kristallklar målbild för startupen.",
     icon: <Flag className="w-6 h-6" />,
-    // Bild: Whiteboard session, messy, creative
-    img: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=800",
+    img: "/roadmap_img/01_kickoff.png",
   },
   {
     id: 2,
     title: "Problem & Kund",
     desc: "Vem betalar? Är det 'nice to have' eller 'must have'? Vi kartlägger marknadspositionen.",
     icon: <Search className="w-6 h-6" />,
-    // Bild: User research, talking to people, coffee shop vibe
-    img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800",
+    img: "/roadmap_img/02_problem.png",
   },
   {
     id: 3,
     title: "Validering",
     desc: "Testa idén mot verkligheten. Vi jagar inte perfekta svar, vi fångar upp signaler och tweakar.",
     icon: <CheckCircle className="w-6 h-6" />,
-    // Bild: Data på skärmar, analytics, dark mode dashboard
-    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+    img: "/roadmap_img/03_validate.png",
   },
   {
     id: 4,
     title: "AI Studio: Grunderna",
     desc: "Nu bygger vi. Vilken AI-lösning stöttar bäst? Vi tar fram en teknisk roadmap.",
     icon: <Cpu className="w-6 h-6" />,
-    // Bild: Complex code, neural network visualization, matrix style
-    img: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800",
+    img: "/roadmap_img/04_grunderna.png",
     highlight: true
   },
   {
@@ -42,32 +38,28 @@ const steps = [
     title: "Bygga POC/MVP",
     desc: "Från snack till verkstad. Tidiga användartester. Produkten ska ut och kännas på.",
     icon: <Code className="w-6 h-6" />,
-    // Bild: Hackathon, late night coding, laptop screens
-    img: "https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?auto=format&fit=crop&q=80&w=800",
+    img: "/roadmap_img/05_poc.png",
   },
   {
     id: 6,
     title: "Sälj & Entreprenör",
     desc: "Bygg teamet och trovärdigheten. Lär er ta betalt. Vi sätter säljpitch och prissättning.",
     icon: <TrendingUp className="w-6 h-6" />,
-    // Bild: Passionate presentation, pitching, dark room
-    img: "https://images.unsplash.com/photo-1544531696-934845326817?auto=format&fit=crop&q=80&w=800",
+    img: "/roadmap_img/06_sell.png",
   },
   {
     id: 7,
     title: "Pilot & Avtal",
     desc: "Onboarda kunder. LOI:er och skarpa avtal. Nu skalar vi upp marknadsandelen.",
     icon: <Handshake className="w-6 h-6" />,
-    // Bild: Focused meeting, signing, intense discussion
-    img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=800",
+    img: "/roadmap_img/07_deal.png",
   },
   {
     id: 8,
     title: "Demo Day",
     desc: "Finalen. Investerare och intressenter. Skarpt läge med pitch och produktvisning.",
     icon: <Award className="w-6 h-6" />,
-    // Bild: Stage, spotlight, microphone, crowd silhouette
-    img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=800",
+    img: "/roadmap_img/08_demoday.png",
   }
 ];
 
