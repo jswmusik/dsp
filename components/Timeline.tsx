@@ -10,7 +10,6 @@ const steps = [
     desc: "Vi definierar visionen. Vart ska vi? Syftet är att hitta en kristallklar målbild för startupen.",
     icon: <Flag className="w-6 h-6" />,
     img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800",
-    highlight: false
   },
   {
     id: 2,
@@ -18,7 +17,6 @@ const steps = [
     desc: "Vem betalar? Är det 'nice to have' eller 'must have'? Vi kartlägger marknadspositionen.",
     icon: <Search className="w-6 h-6" />,
     img: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=800",
-    highlight: false
   },
   {
     id: 3,
@@ -26,7 +24,6 @@ const steps = [
     desc: "Testa idén mot verkligheten. Vi jagar inte perfekta svar, vi fångar upp signaler och tweakar.",
     icon: <CheckCircle className="w-6 h-6" />,
     img: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=800",
-    highlight: false
   },
   {
     id: 4,
@@ -42,7 +39,6 @@ const steps = [
     desc: "Från snack till verkstad. Tidiga användartester. Produkten ska ut och kännas på.",
     icon: <Code className="w-6 h-6" />,
     img: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=800",
-    highlight: false
   },
   {
     id: 6,
@@ -50,7 +46,6 @@ const steps = [
     desc: "Bygg teamet och trovärdigheten. Lär er ta betalt. Vi sätter säljpitch och prissättning.",
     icon: <TrendingUp className="w-6 h-6" />,
     img: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&q=80&w=800",
-    highlight: false
   },
   {
     id: 7,
@@ -58,7 +53,6 @@ const steps = [
     desc: "Onboarda kunder. LOI:er och skarpa avtal. Nu skalar vi upp marknadsandelen.",
     icon: <Handshake className="w-6 h-6" />,
     img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80&w=800",
-    highlight: false
   },
   {
     id: 8,
@@ -66,7 +60,6 @@ const steps = [
     desc: "Finalen. Investerare och intressenter. Skarpt läge med pitch och produktvisning.",
     icon: <Award className="w-6 h-6" />,
     img: "https://images.unsplash.com/photo-1475721027767-pfa5260e08f6?auto=format&fit=crop&q=80&w=800",
-    highlight: true
   }
 ];
 
@@ -80,11 +73,19 @@ export default function Timeline() {
   const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
-    <section className="py-32 bg-[#050505] relative overflow-hidden">
-      <div className="container mx-auto px-6 relative" ref={containerRef}>
+    <section className="py-24 bg-[#050505] relative overflow-hidden">
 
-        {/* Header */}
-        <div className="text-center mb-32">
+      {/* Background Grid Pattern för att göra det roligare */}
+      <div className="absolute inset-0 z-0 opacity-20"
+           style={{ backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)', backgroundSize: '50px 50px' }}>
+      </div>
+
+      {/* Glowing Blob */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-green-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <div className="container mx-auto px-6 relative z-10" ref={containerRef}>
+
+        <div className="text-center mb-24">
           <h2 className="text-4xl md:text-6xl font-bold mb-6 font-[family-name:var(--font-space)]">
             THE <span className="text-[#00ff9d]">ROADMAP</span>
           </h2>
@@ -100,7 +101,8 @@ export default function Timeline() {
             className="absolute left-[20px] md:left-1/2 top-60 bottom-40 w-0.5 bg-[#00ff9d] transform md:-translate-x-1/2 shadow-[0_0_15px_#00ff9d]"
         ></motion.div>
 
-        <div className="relative z-10 space-y-24 md:space-y-32">
+        {/* Minskat spacing från space-y-32 till space-y-16 */}
+        <div className="relative z-10 space-y-16 md:space-y-20">
           {steps.map((step, index) => {
             const isEven = index % 2 === 0;
             return (
@@ -108,8 +110,8 @@ export default function Timeline() {
                 key={step.id}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.7, type: "spring", bounce: 0.4 }}
+                viewport={{ once: true, margin: "-10%" }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
                 className={`flex flex-col md:flex-row items-center gap-8 ${isEven ? 'md:flex-row-reverse' : ''}`}
               >
                 {/* CARD CONTENT */}
@@ -118,18 +120,17 @@ export default function Timeline() {
                   <motion.div
                     whileHover={{ scale: 1.02 }}
                     className={`
-                        relative overflow-hidden rounded-2xl border bg-black/40 backdrop-blur-sm p-1
+                        relative overflow-hidden rounded-2xl border bg-black/60 backdrop-blur-md p-1
                         ${step.highlight ? 'border-[#00ff9d]/50 shadow-[0_0_30px_rgba(0,255,157,0.1)]' : 'border-white/10 hover:border-white/20'}
                         transition-all duration-300
                     `}
                   >
-                    {/* Image Area */}
-                    <div className="relative h-48 w-full overflow-hidden rounded-xl mb-4">
+                    <div className="relative h-40 w-full overflow-hidden rounded-xl mb-4">
                         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10 opacity-80"></div>
                         <img
                             src={step.img}
                             alt={step.title}
-                            className="h-full w-full object-cover transform hover:scale-110 transition-transform duration-700 ease-out"
+                            className="h-full w-full object-cover"
                         />
                         <div className="absolute bottom-3 left-3 z-20 flex items-center gap-2">
                             <span className="text-[#00ff9d] bg-black/50 px-2 py-1 rounded text-xs font-mono border border-[#00ff9d]/30">
@@ -138,12 +139,11 @@ export default function Timeline() {
                         </div>
                     </div>
 
-                    {/* Text Area */}
                     <div className="p-4 pt-0">
                         <h3 className={`text-2xl font-bold mb-2 ${step.highlight ? 'text-[#00ff9d]' : 'text-white'}`}>
                             {step.title}
                         </h3>
-                        <p className="text-gray-400 leading-relaxed text-sm md:text-base">
+                        <p className="text-gray-400 leading-relaxed text-sm">
                             {step.desc}
                         </p>
                     </div>
@@ -151,21 +151,27 @@ export default function Timeline() {
 
                 </div>
 
-                {/* Center Node (Icon) */}
+                {/* Center Node (Icon) - Nu med scroll-reaktion! */}
                 <div className="absolute left-[20px] md:left-1/2 transform -translate-x-1/2 flex items-center justify-center">
                     <motion.div
-                        whileHover={{ rotate: 360 }}
-                        transition={{ duration: 0.6 }}
-                        className={`w-12 h-12 rounded-full border-2 flex items-center justify-center bg-[#050505] z-10
-                        ${step.highlight ? 'border-[#00ff9d] shadow-[0_0_20px_#00ff9d] scale-110' : 'border-gray-700 bg-gray-900'}
-                    `}>
+                        initial={{ scale: 1, backgroundColor: "#050505", borderColor: "#374151" }}
+                        whileInView={{
+                            scale: 1.3,
+                            backgroundColor: "#000",
+                            borderColor: step.highlight ? "#00ff9d" : "#fff",
+                            boxShadow: step.highlight ? "0 0 20px #00ff9d" : "0 0 10px rgba(255,255,255,0.3)"
+                        }}
+                        viewport={{ margin: "-45% 0px -45% 0px" }}
+                        transition={{ duration: 0.3 }}
+                        className="w-12 h-12 rounded-full border-2 flex items-center justify-center z-10"
+                    >
                         <div className={step.highlight ? 'text-[#00ff9d]' : 'text-gray-400'}>
                             {step.icon}
                         </div>
                     </motion.div>
                 </div>
 
-                {/* Empty Side (for balance) */}
+                {/* Empty Side */}
                 <div className="hidden md:block w-1/2"></div>
               </motion.div>
             );

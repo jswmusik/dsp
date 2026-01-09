@@ -1,6 +1,6 @@
 "use client";
+import { motion } from 'framer-motion';
 
-// Exempel på partners (du kan byta namn här)
 const innerOrbit = ["Almi", "Högskolan", "Regionen", "Investerare"];
 const outerOrbit = ["OpenAI", "Google", "AWS", "Anthropic", "AI Sweden"];
 
@@ -21,45 +21,53 @@ export default function Partners() {
         {/* SUN: Dalarna Science Park */}
         <div className="absolute z-10 w-40 h-40 bg-gradient-to-br from-green-400 to-blue-600 rounded-full blur-xl opacity-20 animate-pulse"></div>
         <div className="absolute z-10 w-32 h-32 bg-black border-2 border-green-500/50 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(0,255,157,0.3)]">
-          <span className="text-center font-bold text-xs leading-tight">
+          <span className="text-center font-bold text-xs leading-tight text-white">
             DALARNA<br/>SCIENCE<br/>PARK
           </span>
         </div>
 
-        {/* ORBIT 1 (Inner) */}
-        <div className="absolute border border-white/10 rounded-full w-[400px] h-[400px] animate-spin-slow">
+        {/* ORBIT 1 (Inner) - Använder Framer Motion för rörelse */}
+        <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+            className="absolute border border-white/10 rounded-full w-[400px] h-[400px]"
+        >
            {innerOrbit.map((partner, i) => (
              <div
                 key={i}
-                className="absolute top-1/2 left-1/2 w-12 h-12 -ml-6 -mt-6 bg-gray-900 border border-white/20 rounded-full flex items-center justify-center text-[10px] font-bold hover:scale-125 hover:border-blue-400 hover:z-50 transition-all cursor-pointer group"
+                className="absolute top-1/2 left-1/2 w-12 h-12 -ml-6 -mt-6 bg-gray-900 border border-white/20 rounded-full flex items-center justify-center text-[10px] font-bold text-white hover:scale-125 hover:border-blue-400 hover:z-50 transition-all cursor-pointer group"
                 style={{ transform: `rotate(${i * (360 / innerOrbit.length)}deg) translate(200px) rotate(-${i * (360 / innerOrbit.length)}deg)` }}
              >
-                {/* Tooltip */}
+                {/* Tooltip: VIKTIGT pointer-events-none för att undvika flicker */}
                 <div className="absolute bottom-full mb-2 hidden group-hover:block w-32 bg-gray-800 text-white text-xs p-2 rounded border border-gray-600 z-50 pointer-events-none">
                     Etablerad Partner
                 </div>
                 {partner.substring(0, 2)}
              </div>
            ))}
-        </div>
+        </motion.div>
 
-        {/* ORBIT 2 (Outer - Giants) */}
-        <div className="absolute border border-white/5 rounded-full w-[700px] h-[700px] animate-spin-reverse-slow">
+        {/* ORBIT 2 (Outer) */}
+        <motion.div
+            animate={{ rotate: -360 }}
+            transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+            className="absolute border border-white/5 rounded-full w-[700px] h-[700px]"
+        >
             {outerOrbit.map((partner, i) => (
              <div
                 key={i}
-                className="absolute top-1/2 left-1/2 w-16 h-16 -ml-8 -mt-8 bg-black border border-blue-500/30 rounded-full flex items-center justify-center text-[10px] font-bold shadow-[0_0_15px_rgba(59,130,246,0.2)] hover:scale-125 hover:border-blue-400 hover:shadow-[0_0_30px_rgba(59,130,246,0.6)] transition-all cursor-pointer group"
+                className="absolute top-1/2 left-1/2 w-16 h-16 -ml-8 -mt-8 bg-black border border-blue-500/30 rounded-full flex items-center justify-center text-[10px] font-bold text-white shadow-[0_0_15px_rgba(59,130,246,0.2)] hover:scale-125 hover:border-blue-400 hover:shadow-[0_0_30px_rgba(59,130,246,0.6)] transition-all cursor-pointer group"
                 style={{ transform: `rotate(${i * (360 / outerOrbit.length)}deg) translate(350px) rotate(-${i * (360 / outerOrbit.length)}deg)` }}
              >
                 {/* Tooltip */}
-                <div className="absolute bottom-full mb-2 hidden group-hover:block w-40 bg-blue-900/90 text-white text-xs p-2 rounded border border-blue-500 z-50">
+                <div className="absolute bottom-full mb-2 hidden group-hover:block w-40 bg-blue-900/90 text-white text-xs p-2 rounded border border-blue-500 z-50 pointer-events-none">
                     Målpartner: {partner}<br/>
                     <span className="text-gray-300 text-[9px]">Global skalbarhet</span>
                 </div>
                 {partner}
              </div>
            ))}
-        </div>
+        </motion.div>
       </div>
 
       <div className="absolute bottom-10 text-xs text-gray-500 uppercase tracking-widest">
